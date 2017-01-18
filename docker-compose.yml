@@ -19,7 +19,13 @@ services:
     environment:
       PROXY_CONFIG_FILE: /opt/data/config.yml
       PROXY_CLIENT_ID: drt
-      PROXY_CLIENT_SECRET: 6937ed70-0669-40fd-b65e-4f4b8b834a92
-
-  # nginx:
-  #   image: nginx
+      PROXY_CLIENT_SECRET: d3bec7f4-9a5f-4c5a-b03b-f4c6e69dbb63
+  nginx:
+    image: nginx
+    volumes:
+      - ./mysite.template:/etc/nginx/conf.d/mysite.template
+    expose:
+      - 9000
+    environment:
+      - NGINX_PORT=80
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"

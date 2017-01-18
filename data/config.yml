@@ -3,7 +3,7 @@ revocation-url: http://192.168.99.100:8080/auth/realms/master/protocol/openid-co
 listen: 0.0.0.0:8080
 no-redirects: true
 redirection-url: http://192.168.99.100:8081
-upstream-url: http://10.0.2.2:9000
+upstream-url: http://nginx:80
 upstream-keepalives: true
 enable-refresh-tokens: true
 enable-security-filter: false
