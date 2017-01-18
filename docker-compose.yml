@@ -1,0 +1,25 @@
+version: '2'
+services:
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8080:8080"
+
+  keycloak_proxy:
+    image: quay.io/ukhomeofficedigital/go-keycloak-proxy:latest
+    volumes:
+      - ./data:/opt/data
+    expose:
+      - 9000
+    ports:
+      - "8081:8080"
+    environment:
+      PROXY_CONFIG_FILE: /opt/data/config.yml
+      PROXY_CLIENT_ID: drt
+      PROXY_CLIENT_SECRET: 6937ed70-0669-40fd-b65e-4f4b8b834a92
+
+  # nginx:
+  #   image: nginx
