@@ -1,3 +1,3 @@
 <?php
-var_dump($_SERVER);
+header('location: /v2/STN/live');
 

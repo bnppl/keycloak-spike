@@ -3,6 +3,9 @@ server {
   server_name  localhost;
 
   location / {
+    proxy_pass http://10.0.2.2:9011;
+  }
+  location /v2/ {
     proxy_pass http://10.0.2.2:9000;
   }
 
