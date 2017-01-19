@@ -11,4 +11,9 @@ https://github.com/bnppl/keycloak-spike/blob/master/mysite.template#L6 (hard cod
 
 There is a simple php script to handle redirection that you need to run locally on port 9011.
 
-php -S localhost:9011 redirect.php
+    php -S localhost:9011 redirect.php
+
+
+##See also:
+
+https://github.com/gambol99/keycloak-proxy
